@@ -10,6 +10,30 @@ const cadastroSchrema = new mongoose.Schema(
         type: String,
         required: true,
     },
+    cpf: {
+        type: Number,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    telefone: {
+        type: Number,
+        required: true,
+    },
+    endereço:{
+        type: String,
+        required: true,
+    },
+    data_de_nascimento: {
+        type: Date,
+        required: true,
+    },
+    crp:{
+        type: String,
+        required: true,
+    },
     available: {
         type: Boolean,
         required: true,

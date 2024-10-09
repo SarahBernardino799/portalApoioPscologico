@@ -30,10 +30,10 @@ const findCadById = async (req, res) => {
 
 const addNewCad = async (req, res) =>{
     try {
-        const {nome, available, description} = req.body
-        const newCad = new cadastroModel({nome, available, description})
+        const {nome, cpf, email, telefone, endereço, data_de_nascimento, crp, available, description} = req.body
+        const newCad = new cadastroModel({nome, cpf, email, telefone, endereço, data_de_nascimento, crp, available, description})
         const savedCad = await newCad.save()
-        res.status(201).json({message: "Sucesso!!novo professor(a) cadastrado", savedCad})
+        res.status(201).json({message: "Sucesso!!novo usuario cadastrado", savedCad})
     } catch (error) {
         console.log(error)
         res.status(500).json({
@@ -44,9 +44,9 @@ const addNewCad = async (req, res) =>{
 
 const updateCad = async (req, res) =>{
     try {
-        const {nome, available, description} = req.body
+        const {nome, cpf, email, telefone, endereço, data_de_nascimento, crp, available, description} = req.body
         const updatedCad = await cadastroModel.findByIdAndUpdate(
-            req.params.id, {nome, available, description})
+            req.params.id, {nome, cpf, email, telefone, endereço, data_de_nascimento, crp, available, description})
             res.status(200).json({message: "atualizado e salvo", updatedCad})
         
     } catch (error) {
@@ -76,7 +76,7 @@ const deleteCad = async (req, res) =>{
         })
     } catch (error) {
         console.error(error)
-       res.status(500).json({message:"não foi possivel deletar o professor(a)"}) 
+       res.status(500).json({message:"não foi possivel deletar o usuario"}) 
     
     }
 }
